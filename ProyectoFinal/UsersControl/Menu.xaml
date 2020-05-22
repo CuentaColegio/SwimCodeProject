@@ -1,0 +1,39 @@
+﻿<UserControl x:Class="ProyectoFinal.UsersControl.Menu"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:ProyectoFinal.UsersControl"
+             mc:Ignorable="d">
+    <Menu>
+        <Menu.Resources>
+            <Style x:Key="Simple" TargetType="{x:Type MenuItem}">
+                <Setter Property = "Background" Value= "{DynamicResource {x:Static SystemColors.GradientActiveCaptionBrush}}"/>
+                <Setter Property = "Foreground" Value= "{DynamicResource {x:Static SystemColors.MenuTextBrushKey}}"/>
+                <Setter Property = "Height" Value= "{DynamicResource {x:Static SystemParameters.CaptionHeightKey}}"/>
+                <Setter Property="FontSize" Value ="13"/>
+            </Style >
+        </Menu.Resources>
+
+        <MenuItem Header="Proyecto" Style="{DynamicResource Simple}">
+            <MenuItem Header="Nuevo Proyecto"  Command="{Binding Incrementar}"/>
+            <MenuItem Header="Abrir Proyecto"  Command="{Binding Incrementar}"/>
+            <Separator/>
+            <MenuItem Header="Archivos de proyecto" >
+                <MenuItem Header="Cargar documentos" Command="{Binding NavigateCommand}" CommandParameter="CargaDeArchivos"/>
+                <!-- 
+                <MenuItem Header="Cargar archivo" Command="{Binding CargarArchivo}"/>
+                <MenuItem Header="Cargar carpeta de archivo" Command="{Binding CargarCarpeta}"/> -->
+            </MenuItem>
+        </MenuItem>
+
+        <MenuItem Header="Raspar" Style="{DynamicResource Simple}">
+            <MenuItem Header="Raspado generico" Command="{Binding NavigateCommand}" CommandParameter="FormularioRaspadoGenerico"/>
+        </MenuItem>
+
+        <MenuItem Header="Ver" Style="{DynamicResource Simple}">
+            <MenuItem Header="Documentos cargados"/>
+        </MenuItem>
+
+    </Menu>
+</UserControl>

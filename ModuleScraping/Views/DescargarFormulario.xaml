@@ -1,0 +1,20 @@
+﻿<UserControl x:Class="ModuleScraping.Views.DescargarFormulario"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:prism="http://prismlibrary.com/"             
+             prism:ViewModelLocator.AutoWireViewModel="True">
+    <Grid>
+        <StackPanel>
+            <StackPanel Orientation="Horizontal">
+                <TextBlock Margin="15,10,15,10" Text="Url valida:"/>
+                <TextBlock Margin="0,10,15,10" Text="{Binding Path=PathCorrecta, UpdateSourceTrigger=PropertyChanged}" Foreground="{Binding Path=ForegroundColor, UpdateSourceTrigger=PropertyChanged}"/>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal">
+                <TextBlock Margin="15,10,15,10" Text="Url:"/>
+                <TextBox Margin="0,10,15,10" Width="220" Text="{Binding Path=Path, UpdateSourceTrigger=PropertyChanged}" />
+                <Button Margin="0,10,15,10" Content="Descargar" Command="{Binding DescargarCommand}" />
+            </StackPanel>
+            <TextBlock Margin="15,10,15,10" Text="{Binding Path=Path}"/>
+        </StackPanel>
+    </Grid>
+</UserControl>

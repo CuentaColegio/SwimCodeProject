@@ -1,0 +1,52 @@
+﻿<UserControl x:Class="ModuleScraping.Views.ScrapingDataControl"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:prism="http://prismlibrary.com/"             
+             prism:ViewModelLocator.AutoWireViewModel="True">
+
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto"/>
+        </Grid.RowDefinitions>
+        <StackPanel Grid.Column="0" Grid.Row="0">
+            <TextBlock Text="Documentos cargados:" Margin="15,10,15,10"/>
+            <ListView ItemsSource="{Binding ListaNombresCargados}" Margin="10,0,10,10" Name="ListaCargados" MinHeight="120" MinWidth="120">
+                <ListView.Resources>
+                    <GridView x:Key="one">
+                        <GridViewColumn Header="ArchivosCargados" >
+                            <GridViewColumn.CellTemplate>
+                                <DataTemplate>
+                                    <TextBlock Text="{Binding ListaNombres}"/>
+                                </DataTemplate>
+                            </GridViewColumn.CellTemplate>
+                        </GridViewColumn>
+                    </GridView>
+                </ListView.Resources>
+            </ListView>
+            <Button Content="Recargar" Command="{Binding RecargarListViewCargadosCommand}" 
+                    Width="60" HorizontalAlignment="Left"  Margin="10,0,10,0"/>
+            
+            <TextBlock Text="Documentos descargados:" Margin="15,10,15,10"/>
+            <ListView ItemsSource="{Binding ListaNombresDescargados}" Margin="10,0,10,10" Name="ListaDescargados" MinHeight="120" MinWidth="120">
+                <ListView.Resources>
+                    <GridView x:Key="one">
+                        <GridViewColumn Header="ArchivosCargados" >
+                            <GridViewColumn.CellTemplate>
+                                <DataTemplate>
+                                    <TextBlock Text="{Binding ListaNombres}"/>
+                                </DataTemplate>
+                            </GridViewColumn.CellTemplate>
+                        </GridViewColumn>
+                    </GridView>
+                </ListView.Resources>
+            </ListView>
+            <Button Content="Recargar" Command="{Binding RecargarListViewDescargadosCommand}" 
+                    Width="60" HorizontalAlignment="Left" Margin="10,0,10,0"/>
+        </StackPanel>
+        
+    </Grid>
+
+</UserControl>
