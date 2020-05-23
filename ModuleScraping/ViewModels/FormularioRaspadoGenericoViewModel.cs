@@ -7,6 +7,8 @@ using HtmlAgilityPack;
 using System.Collections.Generic;
 using Prism.Commands;
 using ModuleScraping.Model.Raspado;
+using System.Collections.ObjectModel;
+using System.Linq;
 
 namespace ModuleScraping.ViewModels
 {
@@ -15,11 +17,12 @@ namespace ModuleScraping.ViewModels
         private Scrapy scrapy;
         private ProyectScrapingData _spcrapingData;
         private string _title = "Raspado generico";
-        private string _documentoAScrapear;
-        private HtmlDocument _documentoAScrapearHtml;
-        private List<string> _listaNombresCargados;
-        private List<string> _listaNombresDescargados;
-        private List<string> _listaFianal;
+        private string _documentoAScrapear = "";
+        private HtmlDocument _documentoAScrapearHtml = new HtmlDocument();
+        private List<string> _listaNombresCargados = new List<string>();
+        private List<string> _listaNombresDescargados = new List<string>();
+        private ObservableCollection<string> _listaFianal = new ObservableCollection<string>();
+        //private List<string> _listaFianal;
         private string _textoConsultaXpath = "";
         private string _resultadoScrapeo = "";
 
@@ -34,7 +37,7 @@ namespace ModuleScraping.ViewModels
             get { return _listaNombresDescargados; }
             set { SetProperty(ref _listaNombresDescargados, value); }
         }
-        public List<string> ListaFinal
+        public ObservableCollection<string> ListaFinal
         {
             get { return _listaFianal; }
             set { SetProperty(ref _listaFianal, value); }
@@ -43,7 +46,7 @@ namespace ModuleScraping.ViewModels
         public string ResultadoScrapeo
         {
             get { return _resultadoScrapeo; }
-            set { SetProperty(ref _title, _resultadoScrapeo); }
+            set { SetProperty(ref _resultadoScrapeo, value); }
         }
         public string Title
         {
@@ -80,7 +83,6 @@ namespace ModuleScraping.ViewModels
 
         public FormularioRaspadoGenericoViewModel()
         {
-            _documentoAScrapearHtml = new HtmlDocument();
             RecargarListViewCommand = new DelegateCommand(RecargarListaDocumentosCargados);
             SelectedItemChangesCommand = new DelegateCommand<string>(SelectedItemChanges);
             EjecutarConsultaBox = new DelegateCommand(HacerConsultaXPath);
@@ -100,20 +102,26 @@ namespace ModuleScraping.ViewModels
             DocumentoAScrapear = nombreDoc;
             // si true cargado
             // false descargado
-            Boolean Cual = true;
+            Boolean Cual = false;
+            if (!Cual) { 
             foreach(var item in ListaNombresCargados)
             {
                 if (item.ToString() == nombreDoc)
                 {
                     Cual = true;
+                    break;
                 }
             }
+            
+            }
+            else { 
             foreach (var item in ListaNombresDescargados)
             {
                 if (item.ToString() == nombreDoc)
                 {
                     Cual = false;
                 }
+            }
             }
 
             if (Cual)
@@ -123,6 +131,7 @@ namespace ModuleScraping.ViewModels
                     if (item.Key.ToString() == nombreDoc)
                     {
                         DocumentoAScrapearHtml = item.Value;
+                        break;
                     }
                 }
             }
@@ -132,6 +141,7 @@ namespace ModuleScraping.ViewModels
                     if (item.Key.ToString() == nombreDoc)
                     {
                         DocumentoAScrapearHtml = item.Value;
+                        break;
                     }
                 }
             }
@@ -139,11 +149,26 @@ namespace ModuleScraping.ViewModels
         }
         private void RecargarListaDocumentosCargados()
         {
-
-            ListaFinal = _spcrapingData.NombresCargados;
+            //ListaFinal.Clear();
+            foreach (var item in _spcrapingData.NombresCargados)
+            {
+                if (!ListaFinal.Contains(item.ToString())) {
+                ListaFinal.Add(item.ToString());
+                }
+            }
+            foreach (var item in ListaFinal.ToList())
+            {
+                if (!_spcrapingData.NombresCargados.Contains(item.ToString()) && !_spcrapingData.NombresDescargados.Contains(item.ToString()))
+                {
+                    ListaFinal.Remove(item.ToString());
+                }
+            }
             foreach (var nombre in _spcrapingData.NombresDescargados)
             {
-                ListaFinal.Add(nombre.ToString());
+                if (!ListaFinal.Contains(nombre.ToString()))
+                {
+                    ListaFinal.Add(nombre.ToString());
+                }
             }
             RecargarListViewCargados();
             RecargarListViewDescargados();

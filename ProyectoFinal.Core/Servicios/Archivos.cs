@@ -65,7 +65,7 @@ namespace ProyectoFinal.Core.Servicios
             {
                 while ((linia = sr.ReadLine()) != null)
                 {
-                    Resultado.Concat("\n" + linia);
+                    Resultado = Resultado + "\n" + linia;
                 }
             }
 
@@ -82,7 +82,7 @@ namespace ProyectoFinal.Core.Servicios
             {
                 while ((linia = sr.ReadLine()) != null)
                 {
-                    Resultado.Concat("\n" + linia);
+                    Resultado = Resultado + "\n" + linia;
                 }
             }
             document.LoadHtml(Resultado);

@@ -1,5 +1,6 @@
 ﻿using HtmlAgilityPack;
 using System;
+using System.Linq;
 
 namespace ModuleScraping.Model.Raspado
 {
@@ -30,8 +31,11 @@ namespace ModuleScraping.Model.Raspado
         public string SeleccionarNodosXPath(string ExpresionXPath)
         {
             if (PuedoSeleccionarNodosXPath(ExpresionXPath)) {
-            HtmlNodeCollection htmlNodes = _doc.DocumentNode.SelectNodes(ExpresionXPath);
-            _resultado = htmlNodes.ToString();
+                HtmlNodeCollection htmlNodes = _doc.DocumentNode.SelectNodes(ExpresionXPath);
+                foreach (var node in htmlNodes)
+                {
+                    _resultado = _resultado + "\n" + node.OuterHtml;
+                }
             }
             else
             {

@@ -18,13 +18,13 @@
                 <TextBlock Margin="15,10,15,10" Text="Carpeta:"/>
                 <TextBox Margin="0,10,15,10" Width="220" Text="{Binding Path=PathCarpeta, UpdateSourceTrigger=PropertyChanged}"/>
                 <Button Content="&lt;" Margin="0,10,15,10" Command="{Binding CargarPathCarpetaServiceCommand}"/>
-                <Button Content="Buscar" Margin="0,10,15,10" Command="{Binding CargarCarpetaCommand}"/>
+                <Button Content="Cargar" Margin="0,10,15,10" Command="{Binding CargarCarpetaCommand}"/>
             </StackPanel>
             <StackPanel Orientation="Horizontal">
                 <TextBlock Margin="15,10,15,10" Text="Achivo:"/>
                 <TextBox Margin="6,10,15,10" Width="220" Text="{Binding Path=Path, UpdateSourceTrigger=PropertyChanged}"/>
                 <Button Content="&lt;" Margin="0,10,15,10" Command="{Binding CargarPathArchivoServiceCommand}"/>
-                <Button Content="Buscar" Margin="0,10,15,10" Command="{Binding CargarArchivoCommand}"/>
+                <Button Content="Cargar" Margin="0,10,15,10" Command="{Binding CargarArchivoCommand}"/>
             </StackPanel>
         </StackPanel>
     </Grid>

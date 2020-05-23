@@ -71,7 +71,7 @@
         <Grid Grid.Row="0" Grid.Column="1" Margin="15,0,0,0">
             <StackPanel Grid.Row="0" Grid.Column="0">
                 <TextBlock Text="Seleccione documentos:" Margin="15,10,15,10"/>
-                <ListView x:Name="ListaFinal" ItemsSource="{Binding ListaFinal}" Margin="10,0,10,10" MinHeight="150" MinWidth="300" SelectionMode="Single">
+                    <ListView x:Name="ListaFinal" ItemsSource="{Binding ListaFinal,  UpdateSourceTrigger=PropertyChanged}" Margin="10,0,10,10" MinHeight="150" MinWidth="300" SelectionMode="Single">
                     <ListView.Resources>
                         <GridView x:Key="one">
                             <GridViewColumn Header="ArchivosCargados" >

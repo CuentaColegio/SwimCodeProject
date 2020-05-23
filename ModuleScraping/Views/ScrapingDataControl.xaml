@@ -13,7 +13,7 @@
         </Grid.RowDefinitions>
         <StackPanel Grid.Column="0" Grid.Row="0">
             <TextBlock Text="Documentos cargados:" Margin="15,10,15,10"/>
-            <ListView ItemsSource="{Binding ListaNombresCargados}" Margin="10,0,10,10" Name="ListaCargados" MinHeight="120" MinWidth="120">
+            <ListView ItemsSource="{Binding ListaNombresCargados, Mode=TwoWay}" Margin="10,0,10,10" Name="ListaCargados" MinHeight="120" MinWidth="120">
                 <ListView.Resources>
                     <GridView x:Key="one">
                         <GridViewColumn Header="ArchivosCargados" >
@@ -30,7 +30,7 @@
                     Width="60" HorizontalAlignment="Left"  Margin="10,0,10,0"/>
             
             <TextBlock Text="Documentos descargados:" Margin="15,10,15,10"/>
-            <ListView ItemsSource="{Binding ListaNombresDescargados}" Margin="10,0,10,10" Name="ListaDescargados" MinHeight="120" MinWidth="120">
+            <ListView ItemsSource="{Binding ListaNombresDescargados, Mode=TwoWay}" Margin="10,0,10,10" Name="ListaDescargados" MinHeight="120" MinWidth="120">
                 <ListView.Resources>
                     <GridView x:Key="one">
                         <GridViewColumn Header="ArchivosCargados" >
