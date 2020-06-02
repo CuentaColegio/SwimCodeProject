@@ -19,7 +19,6 @@ namespace ModuleScraping.Model.Raspado
         #region Metodos.
         private Boolean PuedoSeleccionarNodosXPath(string ExpresionXPath)
         {
-
             HtmlNodeCollection htmlNodes = _doc.DocumentNode.SelectNodes(ExpresionXPath);
             if (htmlNodes != null)
             {

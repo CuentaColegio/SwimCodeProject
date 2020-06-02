@@ -9,7 +9,7 @@ namespace ProyectoFinal.ViewModels
     {
         private readonly IRegionManager _regionManager;
 
-        private string _title = "Proyecto Final";
+        private string _title = "SwimCode";
         public string Title
         {
             get { return _title; }
