@@ -5,14 +5,13 @@ using Prism.Events;
 using Prism.Mvvm;
 using Prism.Regions;
 using System.Collections.Generic;
-using System.Windows.Documents;
 
 namespace ModuleScraping.ViewModels
 {
     class SeleccionarRecursosViewModel : BindableBase, INavigationAware
     {
         #region Atributos
-        private string _title = "Crear proyecto";
+        private string _title = "SeleccionarRecursos";
         private ProyectoClass _proyectoClass = new ProyectoClass();
         private List<string> _itemsComboBox = new List<string>();
         private List<string> _itemsASeleccionar = new List<string>();
@@ -36,7 +35,9 @@ namespace ModuleScraping.ViewModels
         public string itemASeleccionar
         {
             get { return _itemASeleccionar; }
-            set { SetProperty(ref _itemASeleccionar, value);
+            set
+            {
+                SetProperty(ref _itemASeleccionar, value);
                 if (value == "Archivos")
                     CargarNombreArchivosIndependientesAComboBox();
                 if (value == "Carpetas")
@@ -72,8 +73,8 @@ namespace ModuleScraping.ViewModels
         #endregion
 
         #region Comandos
-        public DelegateCommand SelectedItemChangesSeleccionadosCommand { get; private set; }
-        public DelegateCommand SelectedItemChangesASeleccionarCommand { get; private set; }
+        public DelegateCommand<string> SelectedItemChangesSeleccionadosCommand { get; private set; }
+        public DelegateCommand<string> SelectedItemChangesASeleccionarCommand { get; private set; }
         #endregion
         #region Constructores
         public SeleccionarRecursosViewModel(IEventAggregator ea)
@@ -83,15 +84,24 @@ namespace ModuleScraping.ViewModels
             ItemsComboBox.Add("Archivos");
             ItemsComboBox.Add("Carpetas");
             ItemsComboBox.Add("Estanterias");
-            
+
             _ea.GetEvent<SetProyectoEvent>().Subscribe(SetProyectoEventReceived);
             GetProyectoEventSent();
-            //CrearProyectoCommand = new DelegateCommand(CrearProyecto);
+            SelectedItemChangesSeleccionadosCommand = new DelegateCommand<string>(SelectedItemChangesASeleccionar);
+            SelectedItemChangesASeleccionarCommand = new DelegateCommand<string>(SelectedItemChangesASeleccionar);
         }
         #endregion
 
         #region Métodos
+        #region Métodos Lista
+        private void SelectedItemChangesASeleccionar(string nombre)
+        {
 
+            ItemsSeleccionados.Add(nombre);
+            ItemsASeleccionar.Remove(nombre);
+        }
+
+        #endregion
 
         #region MétodosListasDeManejoComboBox
         private void CargarNombreArchivosIndependientesAComboBox()

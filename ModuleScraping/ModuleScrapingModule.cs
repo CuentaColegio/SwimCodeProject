@@ -26,6 +26,9 @@ namespace ModuleScraping
             containerRegistry.RegisterForNavigation<CrearProyecto>();
             containerRegistry.RegisterForNavigation<AbrirProyecto>();
             containerRegistry.RegisterForNavigation<SeleccionarRecursos>();
+            containerRegistry.RegisterForNavigation<GuardarResultados>();
+            containerRegistry.RegisterForNavigation<RaspadoDeRecursos>();
+            containerRegistry.RegisterForNavigation<SeleccionarRecursos>();
             containerRegistry.RegisterForNavigation<DescargarFormulario>(); // Obsoleto
             containerRegistry.RegisterDialog<NotificationDialog, NotificationDialogViewModel>();
         }

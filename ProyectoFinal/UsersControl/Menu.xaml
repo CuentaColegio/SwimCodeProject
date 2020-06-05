@@ -16,11 +16,11 @@
         </Menu.Resources>
 
         <MenuItem Header="Proyecto" Style="{DynamicResource Simple}">
-            <MenuItem Header="Nuevo Proyecto"  Command="{Binding NavigateCommand}" CommandParameter="CrearProyecto"/>
-            <MenuItem Header="Abrir Proyecto"  Command="{Binding NavigateCommand}" CommandParameter="AbrirProyecto"/>
+            <MenuItem Header="Nuevo Proyecto"  Command="{Binding NavigateTabControlRegionCommand}" CommandParameter="CrearProyecto"/>
+            <MenuItem Header="Abrir Proyecto"  Command="{Binding NavigateTabControlRegionCommand}" CommandParameter="AbrirProyecto"/>
             <Separator/>
             <MenuItem Header="Archivos de proyecto" >
-                <MenuItem Header="Cargar documentos" Command="{Binding NavigateCommand}" CommandParameter="CargaDeArchivos"/>
+                <MenuItem Header="Cargar documentos raspado generico" Command="{Binding NavigateTabControlRegionCommand}" CommandParameter="CargaDeArchivos"/>
                 <!-- 
                 <MenuItem Header="Cargar archivo" Command="{Binding CargarArchivo}"/>
                 <MenuItem Header="Cargar carpeta de archivo" Command="{Binding CargarCarpeta}"/> -->
@@ -28,14 +28,16 @@
         </MenuItem>
 
         <MenuItem Header="Raspar" Style="{DynamicResource Simple}">
-            <MenuItem Header="Raspado generico" Command="{Binding NavigateCommand}" CommandParameter="FormularioRaspadoGenerico"/>
+            <MenuItem Header="Raspado generico" Command="{Binding NavigateTabControlRegionCommand}" CommandParameter="FormularioRaspadoGenerico"/>
             <Separator/>
-            <MenuItem Header="Seleccionar recursos" Command="{Binding NavigateCommand}" CommandParameter="SeleccionarRecursos"/>
+            <MenuItem Header="Seleccionar recursos" Command="{Binding NavigateTabControlRegionCommand}" CommandParameter="SeleccionarRecursos"/>
+            <MenuItem Header="Raspar recursos" Command="{Binding NavigateTabControlRegionCommand}" CommandParameter="RaspadoDeRecursos"/>
         </MenuItem>
 
         <MenuItem Header="Ver" Style="{DynamicResource Simple}">
-            <MenuItem Header="Documentos cargados"/>
+            <MenuItem Header="Documentos cargados" Command="{Binding NavigateInfoRegionCommand}" CommandParameter="ScrapingDataControl"/>
         </MenuItem>
-
+        <MenuItem Header="Guardar" Style="{DynamicResource Simple}" Command="{Binding NavigateTabControlRegionCommand}" CommandParameter="GuardarResultados">
+        </MenuItem>
     </Menu>
 </UserControl>

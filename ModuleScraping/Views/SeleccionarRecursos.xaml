@@ -23,7 +23,7 @@
                                   Width="90" Height="20"/>
                     </StackPanel>
                     <TextBlock Text="Lista seleccionados:" Margin="15,10,15,10"/>
-                    <ListView x:Name="ListaSeleccionados" ItemsSource="{Binding ListaFinal,  UpdateSourceTrigger=PropertyChanged}" Margin="10,0,10,10" MaxHeight="300"  MinHeight="150" Width="300" SelectionMode="Single">
+                    <ListView x:Name="ListaSeleccionados" ItemsSource="{Binding ItemsSeleccionados,  UpdateSourceTrigger=PropertyChanged}" Margin="10,0,10,10" MaxHeight="300"  MinHeight="150" Width="300" SelectionMode="Single">
                         <ListView.Resources>
                             <GridView x:Key="one">
                                 <GridViewColumn Header="ArchivosCargados" >
@@ -41,10 +41,14 @@
                             </i:EventTrigger>
                         </i:Interaction.Triggers>
                     </ListView>
-                    <Button Content="Recargar" Command="{Binding RecargarListViewCommand}" 
-                    Width="60" HorizontalAlignment="Left" Margin="10,0,10,0"/>
-                    <TextBlock Text="{Binding Path=DocumentoAScrapear, UpdateSourceTrigger=PropertyChanged}" 
-                           Margin="10,10,10,10"></TextBlock>
+                    <StackPanel Orientation="Horizontal" Margin="0,0,15,10">
+                        <TextBlock Margin="10,10,0,10" Text="Nombre:"/>
+                        <TextBox Margin="10,10,15,10" Width="220" Text="{Binding Path=URI, UpdateSourceTrigger=PropertyChanged}" />
+
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal">
+                        <Button Content="Guardar Resultado" Margin="10,0,0,0" Command="{Binding GuardarResultados}" Width="106" />
+                    </StackPanel>
                 </StackPanel>
             </Grid>
 
@@ -75,10 +79,6 @@
                             </i:EventTrigger>
                         </i:Interaction.Triggers>
                     </ListView>
-                    <Button Content="Recargar" Command="{Binding RecargarListViewCommand}" 
-                    Width="60" HorizontalAlignment="Left" Margin="10,0,10,0"/>
-                    <TextBlock Text="{Binding Path=DocumentoAScrapear, UpdateSourceTrigger=PropertyChanged}" 
-                           Margin="10,10,10,10"></TextBlock>
                 </StackPanel>
             </Grid>
         </Grid>
