@@ -6,20 +6,38 @@
     <Grid>
         <StackPanel>
             <StackPanel Orientation="Horizontal">
-                <TextBlock Margin="15,10,15,10" Text="URI valida:"/>
-                <TextBlock Margin="0,10,15,10" Text="{Binding Path=PathCorrecta, UpdateSourceTrigger=PropertyChanged}" Foreground="{Binding Path=ForegroundColor, UpdateSourceTrigger=PropertyChanged}"/>
+                <TextBlock Margin="15,10,15,10" Text="Guardar vertice:"/>
             </StackPanel>
             <StackPanel Orientation="Horizontal">
-                <TextBlock Margin="15,10,15,10" Text="URI:"/>
-                <TextBox Margin="23,10,15,10" Width="220" Text="{Binding Path=URI, UpdateSourceTrigger=PropertyChanged}" />
+                <TextBlock Margin="15,10,15,10" Text="Datos:"/>
+                <ComboBox ItemsSource="{Binding ItemsComboBox}"
+                                  SelectedItem="{Binding itemSeleccionado, UpdateSourceTrigger=PropertyChanged}"
+                                  Width="90" Height="20"/>
             </StackPanel>
             <StackPanel Orientation="Horizontal">
-                <TextBlock Margin="15,10,15,10" Text="Carpeta:"/>
-                <TextBox Margin="0,10,15,10" Width="220" Text="{Binding Path=PathCarpeta, UpdateSourceTrigger=PropertyChanged}"/>
+                <TextBlock Margin="15,10,15,10" Text="Nombre clase:"/>
+                <TextBox Margin="23,10,15,10" Width="220" Text="{Binding Path=NombreClase, UpdateSourceTrigger=PropertyChanged}" />
             </StackPanel>
             <StackPanel Orientation="Horizontal">
-                <TextBlock Margin="15,10,15,10" Text="Achivo:"/>
-                <TextBox Margin="6,10,15,10" Width="220" Text="{Binding Path=Path, UpdateSourceTrigger=PropertyChanged}"/>
+                <TextBlock Margin="15,10,15,10" Text="Nombre campo:"/>
+                <TextBox Margin="14,10,15,20" Width="220" Text="{Binding Path=NombreCampo, UpdateSourceTrigger=PropertyChanged}"/>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal">
+                <TextBlock Margin="15,10,15,10" Text="Base de datos:"/>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal">
+                <TextBlock Margin="15,10,15,10" Text="Nombre:"/>
+                <TextBox Margin="15,10,15,10" Width="220" Text="{Binding Path=Nombre, UpdateSourceTrigger=PropertyChanged}"/>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal">
+                <TextBlock Margin="15,10,15,10" Text="Usuario:"/>
+                <TextBox Margin="19,10,15,10" Width="220" Text="{Binding Path=Usuario, UpdateSourceTrigger=PropertyChanged}"/>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal">
+                <TextBlock Margin="15,10,15,10" Text="Contraseña:"/>
+                <TextBox Margin="0,10,15,10" Width="220" Text="{Binding Path=Contraseña, UpdateSourceTrigger=PropertyChanged}"/>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal">
             </StackPanel>
         </StackPanel>
     </Grid>
