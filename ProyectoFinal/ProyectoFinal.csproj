@@ -13,4 +13,7 @@
     <ProjectReference Include="..\ModuleScraping\ModuleScraping.csproj" />
     <ProjectReference Include="..\ProyectoFinal.Core\ProyectoFinal.Core.csproj" />
   </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Properties\" />
+  </ItemGroup>
 </Project>

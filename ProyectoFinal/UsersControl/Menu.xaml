@@ -16,8 +16,8 @@
         </Menu.Resources>
 
         <MenuItem Header="Proyecto" Style="{DynamicResource Simple}">
-            <MenuItem Header="Nuevo Proyecto"  Command="{Binding Incrementar}"/>
-            <MenuItem Header="Abrir Proyecto"  Command="{Binding Incrementar}"/>
+            <MenuItem Header="Nuevo Proyecto"  Command="{Binding NavigateCommand}" CommandParameter="CrearProyecto"/>
+            <MenuItem Header="Abrir Proyecto"  Command="{Binding NavigateCommand}" CommandParameter="AbrirProyecto"/>
             <Separator/>
             <MenuItem Header="Archivos de proyecto" >
                 <MenuItem Header="Cargar documentos" Command="{Binding NavigateCommand}" CommandParameter="CargaDeArchivos"/>
@@ -29,6 +29,8 @@
 
         <MenuItem Header="Raspar" Style="{DynamicResource Simple}">
             <MenuItem Header="Raspado generico" Command="{Binding NavigateCommand}" CommandParameter="FormularioRaspadoGenerico"/>
+            <Separator/>
+            <MenuItem Header="Seleccionar recursos" Command="{Binding NavigateCommand}" CommandParameter="SeleccionarRecursos"/>
         </MenuItem>
 
         <MenuItem Header="Ver" Style="{DynamicResource Simple}">

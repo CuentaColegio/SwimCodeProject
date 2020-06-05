@@ -1,0 +1,22 @@
+﻿<UserControl x:Class="ModuleScraping.Views.AbrirProyecto"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:prism="http://prismlibrary.com/" xmlns:sys="http://schemas.microsoft.com/winfx/2009/xaml"
+             prism:ViewModelLocator.AutoWireViewModel="True">
+    <Grid>
+        <StackPanel>
+            <StackPanel Orientation="Horizontal">
+                <TextBlock Margin="15,10,15,10" Text="Seleccionar archivo de configuración de proyecto"/>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal">
+                <TextBlock Margin="15,10,15,10" Text="Achivo:"/>
+                <TextBox Margin="6,10,15,10" Width="220" Text="{Binding Path=Path, UpdateSourceTrigger=PropertyChanged}"/>
+                <Button Content="&lt;" Margin="0,10,15,10" Command="{Binding CargarPathArchivoServiceCommand}"/>
+
+            </StackPanel>
+            <StackPanel Orientation="Horizontal">
+                <Button Margin="223,10,15,10" Content="Abrir proyecto" Command="{Binding AbrirProyectoCommand}" />
+            </StackPanel>
+        </StackPanel>
+    </Grid>
+</UserControl>

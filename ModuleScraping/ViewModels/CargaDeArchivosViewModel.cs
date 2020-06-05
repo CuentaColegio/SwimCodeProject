@@ -216,7 +216,7 @@ namespace ModuleScraping.ViewModels
         // Abrimos buscador de archivos de Windows
         private void FileDialogServiceArchivo()
         {
-            string resultado = VentanaFileDialogService.VentanaFileDialogLaunch();
+            string resultado = VentanaFileDialogService.VentanaFileDialogArchivoLaunch();
             if(resultado != null)
             {
                 Path = resultado;
@@ -225,7 +225,7 @@ namespace ModuleScraping.ViewModels
 
         private void FileDialogServiceCarpeta()
         {
-            string resultado = VentanaFileDialogService.VentanaFileDialogLaunch();
+            string resultado = VentanaFileDialogService.VentanaFileDialogCarpetaLaunch();
             if (resultado != null)
             {
                 PathCarpeta = resultado;

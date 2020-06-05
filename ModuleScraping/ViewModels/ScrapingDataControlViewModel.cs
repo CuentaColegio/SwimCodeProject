@@ -50,7 +50,7 @@ namespace ModuleScraping.ViewModels
         #endregion
 
         #region Constructores
-        public ScrapingDataControlViewModel()
+        public ScrapingDataControlViewModel(IRegionManager regionManager)
         {
             _listaNombresCargados = new List<string>();
             _listaNombresDescargados = new List<string>();

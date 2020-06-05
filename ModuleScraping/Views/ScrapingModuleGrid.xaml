@@ -1,9 +1,8 @@
 ﻿<UserControl x:Class="ModuleScraping.Views.ScrapingModuleGrid"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-             xmlns:prism="http://prismlibrary.com/"             
+             xmlns:prism="http://prismlibrary.com/" xmlns:sys="http://schemas.microsoft.com/winfx/2009/xaml"
              prism:ViewModelLocator.AutoWireViewModel="True">
-    
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="*"/>
@@ -21,7 +20,8 @@
         <GridSplitter Grid.Column="1"  Width="5" HorizontalAlignment="Stretch" />
         <Grid Grid.Row="0" Grid.Column="2" MaxWidth="300">
             <TabControl Grid.Column="1" prism:RegionManager.RegionName="InfoRegion" Margin="5" Width="200"
-                        prism:RegionManager.RegionContext="{Binding Path=SpcrapingData}" />
+                        prism:RegionManager.RegionContext="{Binding Path=SpcrapingData}">
+            </TabControl>
             <!--<TabControl prism:RegionManager.RegionName="InfoRegion" Margin="5" TabStripPlacement="Right"/>-->
         </Grid>
 

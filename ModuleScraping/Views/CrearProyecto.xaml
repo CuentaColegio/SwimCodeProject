@@ -1,0 +1,32 @@
+﻿<UserControl x:Class="ModuleScraping.Views.CrearProyecto"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:prism="http://prismlibrary.com/"             
+             prism:ViewModelLocator.AutoWireViewModel="True">
+    <Grid>
+        <StackPanel>
+            <StackPanel Orientation="Horizontal">
+                <TextBlock Margin="15,10,15,10" Text="Datos del nuevo proyecto:"/>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal">
+                <TextBlock Margin="15,10,15,10" Text="Nombre:"/>
+                <TextBox Margin="8,10,15,10" Width="220" Text="{Binding Path=Nombre, UpdateSourceTrigger=PropertyChanged}" />
+            </StackPanel>
+            <StackPanel Orientation="Horizontal">
+                <TextBlock Margin="15,10,15,10" Text="Resumen:"/>
+                <TextBox Margin="4,10,15,10" Width="220" Text="{Binding Path=Resumen, UpdateSourceTrigger=PropertyChanged}"/>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal">
+                <TextBlock Margin="15,10,15,10" Text="Info:"/>
+                <TextBox Margin="32,10,15,10" Width="220" Text="{Binding Path=Info, UpdateSourceTrigger=PropertyChanged}"/>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal">
+                <TextBlock Margin="15,10,15,10" Text="Path:"/>
+                <TextBox Margin="29,10,15,10" Width="220" Text="{Binding Path=Path, UpdateSourceTrigger=PropertyChanged}"/>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal">
+                <Button Margin="223,10,15,10" Content="Crear proyecto" Command="{Binding CrearProyectoCommand}" />    
+            </StackPanel>
+        </StackPanel>        
+    </Grid>
+</UserControl>

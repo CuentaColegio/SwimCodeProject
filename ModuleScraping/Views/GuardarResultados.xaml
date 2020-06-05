@@ -1,4 +1,4 @@
-﻿<UserControl x:Class="ModuleScraping.Views.CargaDeArchivos"
+﻿<UserControl x:Class="ModuleScraping.Views.GuardarResultados"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:prism="http://prismlibrary.com/"             
@@ -12,19 +12,14 @@
             <StackPanel Orientation="Horizontal">
                 <TextBlock Margin="15,10,15,10" Text="URI:"/>
                 <TextBox Margin="23,10,15,10" Width="220" Text="{Binding Path=URI, UpdateSourceTrigger=PropertyChanged}" />
-                <Button Margin="0,10,15,10" Content="Descargar" Command="{Binding DescargarURI}" />
             </StackPanel>
             <StackPanel Orientation="Horizontal">
                 <TextBlock Margin="15,10,15,10" Text="Carpeta:"/>
                 <TextBox Margin="0,10,15,10" Width="220" Text="{Binding Path=PathCarpeta, UpdateSourceTrigger=PropertyChanged}"/>
-                <Button Content="&lt;" Margin="0,10,15,10" Command="{Binding CargarPathCarpetaServiceCommand}"/>
-                <Button Content="Cargar" Margin="0,10,15,10" Command="{Binding CargarCarpetaCommand}"/>
             </StackPanel>
             <StackPanel Orientation="Horizontal">
                 <TextBlock Margin="15,10,15,10" Text="Achivo:"/>
                 <TextBox Margin="6,10,15,10" Width="220" Text="{Binding Path=Path, UpdateSourceTrigger=PropertyChanged}"/>
-                <Button Content="&lt;" Margin="0,10,15,10" Command="{Binding CargarPathArchivoServiceCommand}"/>
-                <Button Content="Cargar" Margin="0,10,15,10" Command="{Binding CargarArchivoCommand}"/>
             </StackPanel>
         </StackPanel>
     </Grid>

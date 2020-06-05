@@ -7,7 +7,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ProyectoFinal", "ProyectoFi
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ProyectoFinal.Core", "ProyectoFinal.Core\ProyectoFinal.Core.csproj", "{763BAA11-5BF7-4854-885B-F2D7B0A0C0AB}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ModuleScraping", "ModuleScraping\ModuleScraping.csproj", "{15FE4191-8AEC-4F6B-AFA8-200BE4BF34C6}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ModuleScraping", "ModuleScraping\ModuleScraping.csproj", "{15FE4191-8AEC-4F6B-AFA8-200BE4BF34C6}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

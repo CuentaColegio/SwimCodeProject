@@ -28,7 +28,7 @@ namespace ProyectoFinal.ViewModels
         {
             if (navigatePath != null)
                 _regionManager.RequestNavigate("TabControlRegion", navigatePath);
-            
+                
         }
     }
 }
